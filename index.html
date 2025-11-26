@@ -4,42 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TVHBot - Hunye</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body{font-family:system-ui,sans-serif;margin:40px auto;max-width:650px;line-height:1.6;font-size:18px;background:#0d1117;color:#c9d1d9;padding:20px;text-align:center}
+    h1{font-size:3rem;margin-bottom:0}
+    code{background:#21262d;padding:4px 8px;border-radius:6px}
+    a{color:#58a6ff}
+    .container{background:#161b22;padding:30px;border-radius:12px;border:1px solid #30363d}
+  </style>
 </head>
 <body>
-
   <div class="container">
     <h1>TVHBot</h1>
     <p>Web by Hunye</p>
-    <p><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
-      → Click here to test it live
-    </a></p>
-    <hr>
-
-    <!-- YouTube Video - Autoplay with SOUND (unmuted) -->
-    <div class="youtube-container" id="player">
-      <iframe 
-        src="https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <small style="margin-top: 30px; display: block;">
-      DM me on <a href="https://www.facebook.com/tranvan.huy.718" target="_blank">Facebook</a>
-    </small>
+    <p><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">→ Click here to test it live</a></p>
+    <hr style="border:1px solid #30363d;margin:30px 0">
+    <small>DM me on <a href="https://www.facebook.com/tranvan.huy.718"> facebook </a></small>
+    <iframe
+     width="560" 
+     height="315" 
+     src="https://www.youtube.com/embed/LeXu1SULqQk?si=RY5fxFytRgJhaycU" 
+     title="YouTube video player" 
+     frameborder="0" 
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+     referrerpolicy="strict-origin-when-cross-origin" 
+     allowfullscreen>
+    </iframe>
   </div>
-
-  <!-- Small script to force unmute + autoplay on user interaction (required by browsers) -->
-  <script>
-    document.addEventListener('click', function() {
-      const iframe = document.querySelector('iframe');
-      if (iframe) {
-        iframe.src = iframe.src; // Re-triggers autoplay + unmute after first click
-      }
-    }, { once: true });
-  </script>
-
 </body>
 </html>
