@@ -45,6 +45,7 @@ const GROUPS = {
       { src: 'k11-12/video1.mp4', caption: 'Hay tời', isVideo: true },
       { src: 'k11-12/video.mp4', caption: 'Chad Sigma male', isVideo: true },
       { src: 'k11-12/video2.mp4', caption: 'Yamateeeee', isVideo: true },
+      { src: 'k11-12/video3.mp4', caption: '1 day dtt', isVideo: true },
     ]
   },
   k1213: {
