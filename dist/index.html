@@ -8,8 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="js/run.js"></script>
-  <script src="js/fullscreen.js"></script>
+  <!-- scripts are loaded at the end of <body> so DOM elements exist before they run -->
 </head>
 <body>
 
@@ -77,5 +76,9 @@
 </div>
 
 
+<!-- JavaScript (gallery & fullscreen) -->
+<script src="js/run.js"></script>
+<!-- fullscreen.js was part of an earlier implementation and is no longer needed; functionality
+     is now built into run.js. The file may be removed or kept for reference. -->
 </body>
 </html>
