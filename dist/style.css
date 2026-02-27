@@ -59,7 +59,7 @@ body {
 .gallery-view.active { display: block; }
 .gallery-back { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 14px; font-family: 'Nunito', sans-serif; font-weight: 700; margin-bottom: 28px; transition: background 0.2s; }
 .gallery-back:hover { background: rgba(255,255,255,0.13); }
-.gallery-heading { font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif; font-size: clamp(32px, 7vw, 60px); letter-spacing: 3px; margin-bottom: 6px; font-weight: 700; }}
+.gallery-heading { font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif; font-size: clamp(32px, 7vw, 60px); letter-spacing: 3px; margin-bottom: 6px; font-weight: 700; }
 .gallery-heading-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
 .gallery-item { position: relative; border-radius: 14px; overflow: hidden; background: rgba(255,255,255,0.03); box-shadow: 0 8px 28px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.22s ease, box-shadow 0.22s ease; }
