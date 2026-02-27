@@ -8,7 +8,6 @@ const GROUPS = {
     sub: 'Niên khóa 2011 – 2012',
     color: '#ff6b6b',
     items: [
-      { src: 'k11-12/img1.jpg', caption: 'Đày Tộ' },
       { src: 'k11-12/img2.jpg', caption: 'Pìa Ngủ 1' },
       { src: 'k11-12/img3.jpg', caption: 'Sigma' },
       { src: 'k11-12/img4.jpg', caption: 'Gian' },
@@ -16,7 +15,6 @@ const GROUPS = {
       { src: 'k11-12/img6.jpg', caption: 'Dang ngu' },
       { src: 'k11-12/img7.jpg', caption: 'Room Review' },
       { src: 'k11-12/img8.jpg', caption: 'Sigma 2' },
-      { src: 'k11-12/img9.jpg', caption: 'Ư Sêd' },
       { src: 'k11-12/img10.jpg', caption: 'Cool' },
       { src: 'k11-12/img11.jpg', caption: 'bigdik' },
       { src: 'k11-12/img12.jpg', caption: 'Cum' },
@@ -190,9 +188,138 @@ fsPrev.addEventListener('click', () => fsShow(fsCurrent - 1));
 fsNext.addEventListener('click', () => fsShow(fsCurrent + 1));
 overlay.addEventListener('click', e => { if (e.target === overlay) fsCloseModal(); });
 
-document.addEventListener('keydown', e => {
-  if (!overlay.classList.contains('active')) return;
-  if (e.key === 'Escape')     fsCloseModal();
-  if (e.key === 'ArrowLeft')  fsShow(fsCurrent - 1);
-  if (e.key === 'ArrowRight') fsShow(fsCurrent + 1);
-});
+
+// ============================================================
+//  SLIDESHOW  — mathematically precise, never drifts
+// ============================================================
+(function initSlideshow() {
+  const allItems = [];
+  for (const key in GROUPS) {
+    GROUPS[key].items.forEach(item => {
+      if (!item.isVideo) allItems.push(item);
+    });
+  }
+  if (allItems.length === 0) return;
+
+  const track = document.getElementById('slideshow-track');
+  const wrap  = document.getElementById('slideshow-wrap');
+  if (!track || !wrap) return;
+
+  const GAP           = 16;
+  const VISIBLE_COUNT = 11;   // odd — center index = 5
+  const CENTER_IDX    = 5;
+
+  // Item widths per class (must match CSS exactly)
+  const W = { normal: 200, side: 240, center: 320 };
+  const H = { normal: 145, side: 172, center: 230 };
+
+  // Assign class by distance from center
+  function classFor(i) {
+    const d = Math.abs(i - CENTER_IDX);
+    return d === 0 ? 'center' : d === 1 ? 'side' : 'normal';
+  }
+
+  // Calculate the pixel left-edge of item i (relative to track origin)
+  // track origin is always the left edge of item 0
+  function itemLeft(i) {
+    let x = 0;
+    for (let j = 0; j < i; j++) {
+      x += W[classFor(j)] + GAP;
+    }
+    return x;
+  }
+
+  // Pre-compute how wide one "step" is (width of item 0 + gap)
+  // After sliding, item 0 is recycled to the end so the step equals W.normal + GAP
+  // But item 0 could also be 'side' at start — we always compute dynamically.
+
+  // Build initial DOM nodes
+  let dataOffset = 0; // index in allItems of the leftmost visible item
+
+  function getItem(pos) {
+    return allItems[(((dataOffset + pos) % allItems.length) + allItems.length) % allItems.length];
+  }
+
+  const nodes = [];
+  for (let i = 0; i < VISIBLE_COUNT; i++) {
+    const d = getItem(i);
+    const div = document.createElement('div');
+    div.className = 'slide-item ' + classFor(i);
+
+    const img = document.createElement('img');
+    img.src = d.src; img.alt = d.caption; img.loading = 'lazy';
+    div.appendChild(img);
+
+    const cap = document.createElement('div');
+    cap.className = 'slide-caption';
+    cap.textContent = d.caption;
+    div.appendChild(cap);
+
+    track.appendChild(div);
+    nodes.push(div);
+  }
+
+  // translateX so the center item's midpoint aligns with wrap midpoint
+  function calcTranslate() {
+    const wrapW    = wrap.offsetWidth;
+    const centerL  = itemLeft(CENTER_IDX);
+    const centerMid = centerL + W.center / 2;
+    return wrapW / 2 - centerMid;
+  }
+
+  // Apply translate without transition
+  function snapToCenter() {
+    track.style.transition = 'none';
+    track.style.transform  = `translateX(${calcTranslate()}px)`;
+  }
+
+  snapToCenter();
+  window.addEventListener('resize', snapToCenter);
+
+  let sliding = false;
+
+  function slideNext() {
+    if (sliding) return;
+    sliding = true;
+
+    // The step is the width of the item that will leave (item 0) + gap
+    const stepW = W[classFor(0)] + GAP;
+
+    // Animate left by stepW
+    const startX = calcTranslate();
+    track.style.transition = 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+    track.style.transform  = `translateX(${startX - stepW}px)`;
+
+    track.addEventListener('transitionend', function onEnd() {
+      track.removeEventListener('transitionend', onEnd);
+
+      // Recycle first node to end
+      const recycled = nodes.shift();
+      dataOffset = (dataOffset + 1) % allItems.length;
+
+      // Update its content to the new last item
+      const newData = getItem(VISIBLE_COUNT - 1);
+      recycled.querySelector('img').src = newData.src;
+      recycled.querySelector('img').alt = newData.caption;
+      recycled.querySelector('.slide-caption').textContent = newData.caption;
+
+      // Re-assign classes for all nodes based on new positions
+      nodes.push(recycled);
+      nodes.forEach((el, i) => {
+        el.classList.remove('normal', 'side', 'center');
+        el.classList.add(classFor(i));
+      });
+
+      // Move the recycled node in DOM to end
+      track.appendChild(recycled);
+
+      // Snap back to correct centered position (no visible jump because
+      // the new layout's center pixel equals the old layout + stepW)
+      snapToCenter();
+
+      sliding = false;
+    }, { once: true });
+  }
+
+  setInterval(slideNext, 3000);
+})();
