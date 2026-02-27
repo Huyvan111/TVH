@@ -56,6 +56,13 @@ const GROUPS = {
     items: [
     ]
   },
+  k1314: {
+    name: 'K13–14',
+    sub: 'Niên khóa 2013 – 2014',
+    color: '#ff9e6d',
+    items: [
+    ]
+  },
   k1415: {
     name: 'K14–15',
     sub: 'Niên khóa 2014 – 2015',
