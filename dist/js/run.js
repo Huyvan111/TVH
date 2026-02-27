@@ -43,6 +43,7 @@ const GROUPS = {
       { src: 'k11-12/img33.jpg', caption: '@Huylee2' },
       { src: 'k11-12/img34.jpg', caption: ':3' },
       { src: 'k11-12/img35.jpg', caption: 'Sleep...' },
+      { src: 'k11-12/img36.jpg', caption: 'Sleep2...' },
       { src: 'k11-12/video1.mp4', caption: 'Hay tời', isVideo: true },
       { src: 'k11-12/video.mp4', caption: 'Chad Sigma male', isVideo: true },
       { src: 'k11-12/video2.mp4', caption: 'Yamateeeee', isVideo: true },
