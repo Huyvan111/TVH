@@ -1,7 +1,7 @@
 {
-  "name": "tvhbot",
-  "compatibility_date": "2025-11-26",
-  "assets": {
-    "directory": "./"
-  }
+    "name": "tvhbot",
+    "compatibility_date": "2026-02-26",
+    "assets": {
+      "directory": "./dist"
+    }
 }
