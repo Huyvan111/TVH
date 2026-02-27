@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="/img7.jpg">
   <title>💀 ĐỘI TUYỂN TIN CHUYÊN BÌNH LONG</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #09111f;
@@ -42,10 +42,10 @@
     }
 
     .site-title {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-size: clamp(28px, 6vw, 58px);
       letter-spacing: 3px;
-      line-height: 1;
+      line-height: 1.25;
       color: #fff;
       text-shadow: 0 0 40px rgba(255,107,107,0.4);
     }
@@ -126,7 +126,7 @@
     }
 
     .group-card .cohort-name {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-size: 30px;
       letter-spacing: 2px;
       color: #fff;
@@ -194,7 +194,7 @@
     .gallery-back:hover { background: rgba(255,255,255,0.13); }
 
     .gallery-heading {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Oswald', sans-serif;
       font-size: clamp(32px, 7vw, 60px);
       letter-spacing: 3px;
       margin-bottom: 6px;
@@ -501,6 +501,7 @@ const GROUPS = {
     sub: 'Niên khóa 2014 – 2015',
     color: '#06d6a0',
     items: [
+
     ]
   },
   k1516: {
@@ -508,19 +509,23 @@ const GROUPS = {
     sub: 'Niên khóa 2015 – 2016',
     color: '#74b9ff',
     items: [
+      
     ]
   }
 };
+
 // ============================================================
 //  GALLERY LOGIC
 // ============================================================
 let currentGroupKey = null;
 let fsItems = [];
 let fsCurrent = 0;
+
 function openGroup(key) {
   currentGroupKey = key;
   const group = GROUPS[key];
   const grid = document.getElementById('gallery-grid');
+
   document.getElementById('gallery-heading').textContent = group.name;
   document.getElementById('gallery-heading').style.color = group.color;
   document.getElementById('gallery-heading-sub').textContent = group.sub + ' — ' + group.items.length + ' items';
