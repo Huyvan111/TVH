@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Huyvan111/TVH#readme",
   "dependencies": {
+    "express": "^5.2.1",
     "yarn": "^1.22.22"
   }
 }
