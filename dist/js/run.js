@@ -189,6 +189,34 @@ fsPrev.addEventListener('click', () => fsShow(fsCurrent - 1));
 fsNext.addEventListener('click', () => fsShow(fsCurrent + 1));
 overlay.addEventListener('click', e => { if (e.target === overlay) fsCloseModal(); });
 
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if (!overlay.classList.contains('active')) return;
+  switch (e.key) {
+    case 'Escape':
+      fsCloseModal();
+      break;
+    case 'ArrowLeft': {
+      const el = document.getElementById('fs-media');
+      if (el && el.tagName === 'VIDEO') {
+        el.currentTime = Math.max(0, el.currentTime - 5);
+      } else {
+        fsShow(fsCurrent - 1);
+      }
+      break;
+    }
+    case 'ArrowRight': {
+      const el = document.getElementById('fs-media');
+      if (el && el.tagName === 'VIDEO') {
+        el.currentTime = Math.min(el.duration || el.currentTime, el.currentTime + 5);
+      } else {
+        fsShow(fsCurrent + 1);
+      }
+      break;
+    }
+  }
+});
+
 
 // ============================================================
 //  SLIDESHOW  — mathematically precise, never drifts
