@@ -1,5 +1,0 @@
-# ignore dependencies produced by package managers
-/dist/node_modules/
-
-# ignore built artifacts or temp files
-/dist/*.lock
