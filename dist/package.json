@@ -1,0 +1,23 @@
+{
+  "name": "tvh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": "git+https://github.com/Huyvan111/TVH.git",
+  "keywords": [],
+  "author": "<nehuy7410@gmail.com>",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Huyvan111/TVH/issues"
+  },
+  "homepage": "https://github.com/Huyvan111/TVH#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "yarn": "^1.22.22"
+  }
+}
