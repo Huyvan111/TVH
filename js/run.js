@@ -5,7 +5,6 @@
 const GROUPS = {
   k1112: {
     name: 'K11–12',
-    sub: 'Niên khóa 2011 – 2012',
     color: '#ff6b6b',
     items: [
       { src: 'k11-12/img2.jpg', caption: 'Pìa Ngủ 1' },
@@ -50,28 +49,24 @@ const GROUPS = {
   },
   k1213: {
     name: 'K12–13',
-    sub: 'Niên khóa 2012 – 2013',
     color: '#ffd166',
     items: [
     ]
   },
   k1314: {
     name: 'K13–14',
-    sub: 'Niên khóa 2013 – 2014',
     color: '#ff9e6d',
     items: [
     ]
   },
   k1415: {
     name: 'K14–15',
-    sub: 'Niên khóa 2014 – 2015',
     color: '#06d6a0',
     items: [
     ]
   },
   k1516: {
     name: 'K15–16',
-    sub: 'Niên khóa 2015 – 2016',
     color: '#74b9ff',
     items: [
     ]
@@ -89,7 +84,7 @@ function openGroup(key) {
   const grid = document.getElementById('gallery-grid');
   document.getElementById('gallery-heading').textContent = group.name;
   document.getElementById('gallery-heading').style.color = group.color;
-  document.getElementById('gallery-heading-sub').textContent = group.sub + ' — ' + group.items.length + ' items';
+  document.getElementById('gallery-heading-sub').textContent =group.items.length + ' items';
 
   grid.innerHTML = '';
   fsItems = group.items;
