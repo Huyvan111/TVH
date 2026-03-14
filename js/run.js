@@ -43,6 +43,7 @@ const GROUPS = {
       { src: 'k11-12/img36.jpg', caption: 'Sleep2...' },
       { src: 'k11-12/img37.jpg', caption: 'Mấy con nghiện' },
       { src: 'k11-12/img38.jpg', caption: 'HeHe Boy' },
+      { src: 'k11-12/img39.jpg', caption: 'Đa cấp thứ thiệt ' },
       { src: 'k11-12/video1.mp4', caption: 'Hay tời', isVideo: true },
       { src: 'k11-12/video.mp4', caption: 'Chad Sigma male', isVideo: true },
       { src: 'k11-12/video2.mp4', caption: 'Yamateeeee', isVideo: true },
@@ -55,7 +56,7 @@ const GROUPS = {
     items: [
     ]
   },
-  k1314: {
+  k1314: { 
     name: 'K13–14',
     color: '#ff9e6d',
     items: [
