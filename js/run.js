@@ -3,6 +3,12 @@
 //  Mỗi item: { src, caption, isVideo (optional) }
 // ============================================================
 const GROUPS = {
+  k1011: {
+    name: 'K10–11',
+    color: '#ffd166',
+    items: [
+    ]
+  },
   k1112: {
     name: 'K11–12',
     color: '#ff6b6b',
