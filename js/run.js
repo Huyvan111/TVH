@@ -80,6 +80,7 @@ const GROUPS = {
     name: 'K15–16',
     color: '#74b9ff',
     items: [
+      { src: 'k11-12/img41.jpg', caption: '🤫' },
       { src: 'k11-12/video4.mp4', caption: '🤫', isVideo: true },
     ]
   }
