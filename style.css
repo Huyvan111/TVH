@@ -55,6 +55,8 @@ body {
 .group-card:nth-child(3):hover { border-color: rgba(255,158,109,0.5); }
 .group-card:nth-child(4):hover { border-color: rgba(6,214,160,0.5); }
 .group-card:nth-child(5):hover { border-color: rgba(116,185,255,0.5); }
+.group-card:nth-child(6) .cohort-name { color: #a78bfa; }
+.group-card:nth-child(6):hover { border-color: rgba(147,112,219,0.5); }
 
 /* ── GALLERY VIEW ── */
 .gallery-view { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }

@@ -76,7 +76,7 @@ const GROUPS = {
   },
   k1516: {
     name: 'K15–16',
-    color: '#74b9ff',
+    color: '#a78bfa',
     items: [
       // { src: 'k11-12/img41.jpg', caption: '🤫' },
       // { src: 'k11-12/video4.mp4', caption: '🤫', isVideo: true },
